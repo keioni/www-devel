@@ -1,0 +1,73 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+
+.profile {
+    margin-bottom: 0.5em;
+}
+
+.contact img {
+    height: 1.25em;
+    width: auto;
+    margin-right: 0.5em;
+}
+
+.myface {
+    height: 5em;
+    width: 5em;
+}
+
+.ipv6 img {
+    height: 1.25em;
+    width: auto;
+}
+
+.footer-ipv6 {
+    height: 1.25em;
+    width: auto;
+}
+
+.certificate ul li {
+    margin-left: -1em;
+}
+
+.hearts {
+    color: red;
+}
+
+#profile-detail div {
+    margin-bottom: 2em;
+}
+
+#profile-detail h4 {
+    margin-bottom: 0.5em;
+}
+
+#profile-detail dl {
+    margin-left: 1.5em;
+}
+
+#profile-detail dl dd {
+    margin-top: 0.25em;
+    margin-left: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+main > .container {
+    padding: 60px 15px 0;
+  }
+  
+  .footer {
+    background-color: #f5f5f5;
+  }
+  
+  .footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  code {
+    font-size: 80%;
+  }
+

@@ -1,0 +1,14 @@
+# for 'Connected via IPv6' image
+<Files "*.png">
+    FileEtag None
+    Header set Cache-Control no-store
+</Files>
+
+<If "%{REQUEST_URI} == '/img/connected/via.png'">
+    RewriteEngine on
+    RewriteCond %{IPV6} on
+    RewriteRule ^.*$ /img/connected/via_ipv6.png [L]
+    RewriteCond %{IPV6} off
+    RewriteRule ^.*$ /img/connected/via_ipv4.png [L]
+</If>
+
