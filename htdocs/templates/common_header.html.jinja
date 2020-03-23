@@ -1,3 +1,4 @@
+{# pre-processed jinja2 with template_items.json #}
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="/">devel::keys.jp</a>
@@ -7,20 +8,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-      {% for item in items %}
-        {% if item.is_enable %}
-          {% if item.is_active %}
+      # for item in items:
+        # if item.is_enable:
+          # if item.is_active:
             {% set li_active_class='active' %}
             {% set active_info='<span class=\"sr-only\">(current)</span>' %}
-          {% else %}
+          # else:
             {% set li_active_class='' %}
             {% set active_info='' %}
-          {% endif %}
+          # endif
           <li class="nav-item {{ li_active_class }}">
-            <a class="nav-link" href="{{ item.href|e }}">{{ item.name|e }} {{ active_info }}</a>
+            <a class="nav-link" href="{{ item.href }}">{{ item.name }} {{ active_info }}</a>
           </li>
-        {% endif %}
-      {% endfor %}
+        # endif
+      # endfor
       </ul>
     </div>
   </nav>
