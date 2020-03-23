@@ -1,0 +1,23 @@
+{
+    "navbar": {
+        "common_headeer": {
+            "env":
+            {
+            },
+            "items":
+            [
+                {
+                    "name":  "Home",
+                    "href":  "/",
+                    "enable": true
+                },
+                {
+                    "name": "Profile",
+                    "href": "/profile/",
+                    "rel": "nofollow",
+                    "enable": true
+                }
+            ]
+        }
+    }
+}
