@@ -1,6 +1,6 @@
 {
     "navbar": {
-        "common_headeer": {
+        "common_header": {
             "env":
             {
             },
@@ -11,15 +11,15 @@
                     "attributes": {
                         "href":  "/"
                     },
-                    "enable": true
+                    "is_enable": true
                 },
                 {
                     "name": "Profile",
                     "attributes": {
                         "href": "/profile/",
                         "rel": "nofollow"
-                    },
-                    "enable": true
+                },
+                    "is_enable": true
                 }
             ]
         }
