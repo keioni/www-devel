@@ -18,7 +18,7 @@
             {% set active_info='' %}
           # endif
           <li class="nav-item {{ li_active_class }}">
-            <a class="nav-link" href="{{ item.href }}">{{ item.name }} {{ active_info }}</a>
+            <a class="nav-link" {% for key, value in item.attributes.items() %}{{ key }}="{{ value }}" {% endfor %}>{{ item.name }} {{ active_info }}</a>
           </li>
         # endif
       # endfor

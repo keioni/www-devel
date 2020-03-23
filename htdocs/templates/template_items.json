@@ -8,13 +8,17 @@
             [
                 {
                     "name":  "Home",
-                    "href":  "/",
+                    "attributes": {
+                        "href":  "/"
+                    },
                     "enable": true
                 },
                 {
                     "name": "Profile",
-                    "href": "/profile/",
-                    "rel": "nofollow",
+                    "attributes": {
+                        "href": "/profile/",
+                        "rel": "nofollow"
+                    },
                     "enable": true
                 }
             ]
