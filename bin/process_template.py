@@ -1,7 +1,8 @@
 import glob
 import json
 import os
-from typing import List, Dict, Any
+import re
+from typing import List, Dict, Any, Union, Optional, Match
 
 from jinja2 import Template, Environment, DictLoader
 
@@ -17,16 +18,46 @@ class Jinja2TemplateProcessor:
         self._templates: Dict[str, str] = dict()
         self._configure: Dict[str, Any] = dict()
 
-    def _apply_one(self, file_name: str, file_data: str):
+    def _render(self, html_file: str) -> Optional[List]:
         pass
 
-    def apply(self, file_path: str = ''):
+    def _apply_each(self, url_path: str, input_lines: str) -> List[str]:
+        within_template = False
+        output_lines: List[str] = list()
+        match: Optional[Match[str]]
+        req_tmpl_name: str
+        for line in input_lines:
+            if within_template:
+                match = re.search(r'/template[^:]', line)
+                if match:
+                    req_tmpl_name = match.group(1)
+                    output_lines.append(line)
+                    within_template = False
+            else:
+                match = re.search(r'[^/]template: (\w+)', line)
+                if match:
+                    req_tmpl_name = match.group(1)
+                    tmpl_lines = self._render(req_tmpl_name)
+                    if tmpl_lines:
+                        output_lines += tmpl_lines
+                        within_template = True
+                output_lines.append(line)
+        return output_lines
+
+    def apply(self, file_path: str = '') -> bool:
+        file_list: List[str]
         if not file_path:
             file_path = self._html_path
         file_list = glob.glob(file_path+'/**/*.html', recursive=True)
         for html_file in file_list:
-            with open(html_file, 'r') as fpi:
-                self._apply_one(html_file, fpi.read())
+            url_path = html_file.replace(file_path, '')
+            ## taking backup
+            with open(html_file, 'r') as fpr:
+                output_lines = self._apply_each(url_path, fpr.read())
+                with open(html_file, 'w') as fpw:
+                    fpw.writelines(output_lines)
+            ## end process (remove backup, and etc.)
+        return True
 
     def load_templates(self, file_path: str = ''):
         if not file_path:
