@@ -1,6 +1,7 @@
 """update_html_file.py
 
 update templates block in html files.
+by Kei Onimaru <otegami@devel.keys.jp>
 """
 
 import glob
