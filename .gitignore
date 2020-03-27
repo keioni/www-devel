@@ -6,6 +6,9 @@ __pycache__/
 .mypy_cache/
 .pytest_cache/
 
+# Visual Studio Code
+.vscode/
+
 # for this site
 lib/
 *.pdf
