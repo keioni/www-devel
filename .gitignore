@@ -1,7 +1,12 @@
-
+# macOS
 .DS_Store
 
+# python files
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# for this site
 lib/
 *.pdf
 google*.html
-
