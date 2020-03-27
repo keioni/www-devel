@@ -1,8 +1,13 @@
+"""update_html_file.py
+
+update templates block in html files.
+"""
+
 import glob
 import json
 import os
 import re
-from typing import List, Dict, Any, Union, Optional, Match
+from typing import List, Dict, Any, Optional, Match
 
 from jinja2 import Template, Environment, DictLoader
 
@@ -18,29 +23,29 @@ class Jinja2TemplateProcessor:
         self._templates: Dict[str, str] = dict()
         self._configure: Dict[str, Any] = dict()
 
-    def _render(self, html_file: str) -> Optional[List]:
-        pass
+    def _render(self, url_path: str, html_file: str) -> Optional[List[str]]:
+        return list()
 
     def _apply_each(self, url_path: str, input_lines: str) -> List[str]:
-        within_template = False
+        within_tmpl_block = False
         output_lines: List[str] = list()
         match: Optional[Match[str]]
-        req_tmpl_name: str
+        requested_tmpl_name: str
         for line in input_lines:
-            if within_template:
-                match = re.search(r'/template[^:]', line)
+            if within_tmpl_block:
+                match = re.search(r'/template ', line)
                 if match:
-                    req_tmpl_name = match.group(1)
+                    requested_tmpl_name = match.group(1)
                     output_lines.append(line)
-                    within_template = False
+                    within_tmpl_block = False
             else:
-                match = re.search(r'[^/]template: (\w+)', line)
+                match = re.search(r'template: (\w+)', line)
                 if match:
-                    req_tmpl_name = match.group(1)
-                    tmpl_lines = self._render(req_tmpl_name)
+                    requested_tmpl_name = match.group(1)
+                    tmpl_lines = self._render(url_path, requested_tmpl_name)
                     if tmpl_lines:
                         output_lines += tmpl_lines
-                        within_template = True
+                    within_tmpl_block = True
                 output_lines.append(line)
         return output_lines
 
@@ -80,9 +85,15 @@ class Jinja2TemplateProcessor:
             self._configure = json.load(fpi)
 
 
-if __name__ == '__main__':
-    basedir = './'
+def class_runner():
+    """Class Runner
+
+    create instance, and run methods of that for class(es) in this file.
+    """
     j2tp = Jinja2TemplateProcessor()
     j2tp.configure()
     j2tp.load_templates()
     j2tp.apply()
+
+if __name__ == '__main__':
+    class_runner()
