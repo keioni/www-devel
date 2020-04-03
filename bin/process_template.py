@@ -47,7 +47,6 @@ class Jinja2TemplateProcessor:
         within_tmpl_block = False
         output_lines: List[str] = list()
         match: Optional[Match[str]]
-        requested_tmpl_name: str
         for line in input_lines:
             if within_tmpl_block:
                 if ' /template ' in line:
