@@ -13,3 +13,4 @@ __pycache__/
 lib/
 *.pdf
 google*.html
+.trash

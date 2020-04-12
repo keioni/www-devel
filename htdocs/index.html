@@ -9,10 +9,11 @@
   <!-- library stylesheets -->
   <link rel="stylesheet" href="/lib/bootstrap/4.4.1/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="/css//main.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/redundunt.js"></script>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" onload="showRedunduntMessage()">
 
   <!-- template: common_header -->
   <header>
@@ -50,10 +51,10 @@
             IPv6とAWSとPythonが好物でよく食べます。Excelの仕様書をあたえると爆発していましたが、今は改善されたようです。
           </p>
           <p class="contact">
-            <a href="https://twitter.com/keionim"><img src="img/icon/twitter_icon.svg"></a>
-            <a href="https://github.com/keioni"><img src="img/icon/github_icon.png"></a>
-            <a href="mailto:otegami@devel.keys.jp"><img src="img/icon/envelope-fill.svg"></a>
-            <a href="https://qiita.com/keys"><img class="qiita-logo" src="img/icon/qiita_logo.png"></a>
+            <a href="https://twitter.com/keionim"><img src="/img/icon/twitter_icon.svg"></a>
+            <a href="https://github.com/keioni"><img src="/img/icon/github_icon.png"></a>
+            <a href="mailto:otegami@devel.keys.jp"><img src="/img/icon/envelope-fill.svg"></a>
+            <a href="https://qiita.com/keys"><img class="qiita-logo" src="/img/icon/qiita_logo.png"></a>
           </p>
         </div>
       </div>
@@ -71,16 +72,20 @@
             現在無職。
           </p>
           <p>
-            もうちょっと詳しい（真面目な）自己紹介は<a href="profile/" rel=”nofollow”>こちら</a>
+            もうちょっと詳しい（真面目な）自己紹介は<a href="/profile/" rel=”nofollow”>こちら</a>
           </p>
         </div>
       </div>
 
-      <p class="text-center mt-5 ipv6">
-        I Love IPv6 <span class="hearts">&hearts;</span><br>
-        <img src="/img/connected/via.png" alt="Connected via">
-      </p>
-    </div>
+      <div id="redundunt-message"></div>
+
+      <div id="love-ipv6">
+        <p class="text-center mt-5 ipv6">
+          I Love IPv6 <span class="hearts">&hearts;</span><br>
+          <img src="/img/connected/via.png" alt="Connected via">
+        </p>
+      </div>
+  </div>
   </main>
 
   <!-- no footer -->
