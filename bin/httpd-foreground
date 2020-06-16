@@ -2,7 +2,12 @@
 set -e
 
 # Apache gets grumpy about PID files pre-existing
-rm -f /usr/local/apache2/logs/httpd.pid
+pid_file=/var/run/apache2/httpd.pid
+if [ -f $pid_file ]; then
+    rm -f $pid_file
+fi
 
-exec httpd -DFOREGROUND "$@"
-
+exec httpd -DFOREGROUND \
+    -d /etc/httpd \
+    -f /etc/httpd/conf/httpd.conf \
+    "$@"

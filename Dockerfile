@@ -9,12 +9,16 @@ RUN set -ex; apk add apache2 apache2-ssl apache2-http2
 RUN set -ex; \
     apk add binutils file; \
     apk add perl; \
-    apk add python3; \
-    ;
+    apk add python3
 
 # copy configuration files
-COPY etc/httpd/conf/httpd.conf /etc/apache2
-COPY etc/httpd/conf/conf.d /etc/apache2
+COPY etc/httpd /etc/httpd
+RUN set -ex; \
+    ln -s /usr/lib/apache2 /etc/httpd/modules; \
+    ln -s /var/log /etc/httpd/logs; \
+    ln -s /run/apache2 /etc/httpd/run; \
+    cp /etc/apache2/mime.types /etc; \
+    ln -s /etc/httpd /etc/apache2
 
 # make htdocs volume share point
 # add "-v local_htdocs_dir:${HTDOCS}" in arguments when run container
@@ -27,6 +31,5 @@ EXPOSE 80 443
 EXPOSE 8080 8443
 
 # run httpd foregound
-COPY bin/httpd-foreground /usr/local/sbin
-RUN chmod u+x /usr/local/sbin/httpd-foreground
-CMD ["/usr/local/sbin/httpd-foreground"]
+COPY bin/httpd-foreground /usr/local/sbin/
+CMD ["httpd-foreground"]
