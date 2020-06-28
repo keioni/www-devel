@@ -1,6 +1,6 @@
 FROM alpine:3
 
-ENV HTDOCS="/var/www/devel.keys.jp"
+ENV HTDOCS="/var/www/_default"
 
 # install main packages
 RUN set -ex; apk add apache2 apache2-ssl apache2-http2
