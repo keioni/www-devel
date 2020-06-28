@@ -14,8 +14,3 @@ lib/
 *.pdf
 google*.html
 .trash
-
-# ssl
-*.key
-*.crt
-*.pem
