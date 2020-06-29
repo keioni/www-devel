@@ -1,7 +1,6 @@
 FROM alpine:3
 
 ENV HTTPD_BASE="/etc/httpd"
-ENV HTDOCS="/var/www/_default"
 
 # install main packages
 RUN set -ex; apk add apache2 apache2-ssl apache2-http2
@@ -20,10 +19,6 @@ RUN set -ex; \
     ln -s /run/apache2 ${HTTPD_BASE}/run; \
     cp /etc/apache2/mime.types /etc; \
     ln -s ${HTTPD_BASE} /etc/apache2
-
-# make htdocs volume share point
-# add "-v local_htdocs_dir:${HTDOCS}" in arguments when run container
-RUN mkdir -p ${HTDOCS}
 
 # expose main port
 EXPOSE 80 443
