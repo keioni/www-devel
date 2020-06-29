@@ -33,5 +33,4 @@ EXPOSE 8080 8443
 
 # run httpd foregound
 COPY bin/httpd-foreground /usr/local/sbin/
-# CMD ["httpd-foreground"]
-CMD ["/bin/sh"]
+CMD ["httpd-foreground"]
