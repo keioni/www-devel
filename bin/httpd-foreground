@@ -7,6 +7,8 @@ if [ -f $pid_file ]; then
     rm -f $pid_file
 fi
 
+dd if=/dev/random of=/etc/httpd/var/ticket.key bs=1 count=48
+
 exec httpd -DFOREGROUND \
     -d /etc/httpd \
     -f /etc/httpd/conf/httpd.conf \

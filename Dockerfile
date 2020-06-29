@@ -1,5 +1,6 @@
 FROM alpine:3
 
+ENV HTTPD_BASE="/etc/httpd"
 ENV HTDOCS="/var/www/_default"
 
 # install main packages
@@ -12,13 +13,13 @@ RUN set -ex; \
     apk add python3
 
 # copy configuration files
-COPY etc/httpd /etc/httpd
+COPY etc/httpd ${HTTPD_BASE}
 RUN set -ex; \
-    ln -s /usr/lib/apache2 /etc/httpd/modules; \
-    ln -s /var/log /etc/httpd/logs; \
-    ln -s /run/apache2 /etc/httpd/run; \
+    ln -s /usr/lib/apache2 ${HTTPD_BASE}/modules; \
+    ln -s /var/log ${HTTPD_BASE}/logs; \
+    ln -s /run/apache2 ${HTTPD_BASE}/run; \
     cp /etc/apache2/mime.types /etc; \
-    ln -s /etc/httpd /etc/apache2
+    ln -s ${HTTPD_BASE} /etc/apache2
 
 # make htdocs volume share point
 # add "-v local_htdocs_dir:${HTDOCS}" in arguments when run container
@@ -32,4 +33,5 @@ EXPOSE 8080 8443
 
 # run httpd foregound
 COPY bin/httpd-foreground /usr/local/sbin/
-CMD ["httpd-foreground"]
+# CMD ["httpd-foreground"]
+CMD ["/bin/sh"]
