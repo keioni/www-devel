@@ -15,8 +15,10 @@ RUN set -ex; \
 COPY etc/httpd ${HTTPD_BASE}
 RUN set -ex; \
     ln -s /usr/lib/apache2 ${HTTPD_BASE}/modules; \
-    ln -s /var/log ${HTTPD_BASE}/logs; \
-    ln -s /run/apache2 ${HTTPD_BASE}/run; \
+    ln -s /var/log         ${HTTPD_BASE}/logs; \
+    ln -s /run/apache2     ${HTTPD_BASE}/run
+
+RUN set -ex; \
     cp /etc/apache2/mime.types /etc; \
     ln -s ${HTTPD_BASE} /etc/apache2
 
