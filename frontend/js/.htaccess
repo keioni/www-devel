@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^redundunt.js not_redundunt.js
+RewriteRule ^redundant.js not_redundant.js
