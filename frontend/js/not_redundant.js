@@ -1,1 +1,2 @@
 /* no operation */
+function showRedundantMessage() {}
