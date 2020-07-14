@@ -18,10 +18,13 @@
     LogFormat "- %h [%{%Y/%m/%d %T}t] %>s %b %{SSL_PROTOCOL}x \"%r\" \"%{Referer}i\" \"%{User-Agent}i\"" per_host_req
     CustomLog logs/devel.keys.jp/keys_ssl_access_log per_host_req
 
-    Header set X-XSS-Protection "1; mode=block"
-    Header set X-Content-Type-Options nosniff
-    Header append X-Frame-Options SAMEORIGIN
-    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    <FilesMatch "\.html$">
+        Header set X-XSS-Protection "1; mode=block"
+        Header set X-Content-Type-Options nosniff
+        Header append X-Frame-Options SAMEORIGIN
+        Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        Header set Link "</img/connected/via.png>;rel=preload;as=image;nopush"
+    </FilesMatch>
 
     SSLEngine on
     SSLUseStapling on
