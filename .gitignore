@@ -12,6 +12,7 @@ __pycache__/
 # for this site
 tmp/
 .trash/
+lib/
 
 *.pdf
 google*.html
