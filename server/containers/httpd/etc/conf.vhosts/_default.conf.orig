@@ -1,3 +1,4 @@
+# vim: syntax=apache
 <VirtualHost _default_:80>
     DocumentRoot /var/www/_default
     <Directory "/var/www/_default">
