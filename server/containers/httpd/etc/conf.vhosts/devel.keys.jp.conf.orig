@@ -1,3 +1,4 @@
+# vim: syntax=apache
 <VirtualHost *:443>
     ServerName devel.keys.jp
     ServerAdmin admin@devel.keys.jp
