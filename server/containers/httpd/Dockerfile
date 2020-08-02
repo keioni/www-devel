@@ -1,33 +1,22 @@
 FROM alpine:3
 
-ENV HTTPD_BASE="/etc/httpd"
+ARG HTTPD_BASE="/etc/httpd"
 
-# install main packages
-RUN set -ex; apk add apache2 apache2-ssl apache2-http2
-
-# install suppliment packages
+# 1) install packages.
+# 2) make conf file comatibility with Amazon Linux 2
 RUN set -ex; \
-    apk add binutils file; \
-    apk add perl; \
-    apk add python3
-
-# copy configuration files
-COPY etc/httpd ${HTTPD_BASE}
-RUN set -ex; \
+    apk add apache2 apache2-ssl apache2-http2; \
+    \
+    mkdir -p $HTTPD_BASE; \
     ln -s /usr/lib/apache2 ${HTTPD_BASE}/modules; \
     ln -s /var/log         ${HTTPD_BASE}/logs; \
-    ln -s /run/apache2     ${HTTPD_BASE}/run
+    ln -s /run/apache2     ${HTTPD_BASE}/run; \
+    ln -s /etc/apache2/mime.types /etc; \
+    ln -s $HTTPD_BASE /etc/apache2
 
-RUN set -ex; \
-    cp /etc/apache2/mime.types /etc; \
-    ln -s ${HTTPD_BASE} /etc/apache2
-
-# expose main port
 EXPOSE 80 443
 
-# expose test port
-EXPOSE 8080 8443
+COPY httpd-foreground /usr/local/sbin/
+COPY etc $HTTPD_BASE
 
-# run httpd foregound
-COPY bin/httpd-foreground /usr/local/sbin/
 CMD ["httpd-foreground"]
