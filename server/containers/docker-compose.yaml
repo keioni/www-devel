@@ -1,0 +1,23 @@
+version: '3'
+services:
+    httpd:
+        build: ./httpd
+        container_name: keys-www-httpd
+        restart: always
+        ports:
+            - 80:80
+            - 433:443/tcp
+        volumes:
+            - /var/log/apache2:/var/log/httpd
+            - htdocs:/var/www/devel.keys.jp
+    nginx-http3:
+        build: ./nginx
+        container_name: keys-www-nginx
+        restart: always
+        ports:
+            - 433:433/udp
+        volumes:
+            - /usr/local/nginx/logs:/var/log/nginx
+            - htdocs:/usr/local/nginx/html
+volumes:
+    - htdocs:../../frontend
