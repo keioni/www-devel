@@ -39,49 +39,63 @@
   <!-- Begin page content -->
   <main role="main" class="flex-shrink-0">
     <div class="container">
-      <h1 class="mt-lg-5 mt-3 mb-4">devel::keys.jp</h1>
+      <div class="toppage">
+        <h1>devel::keys.jp</h1>
 
-      <div class="media">
-        <img src="/img/profile/face.jpg" class="mr-4 myface" alt="My Face">
-        <div class="media-body">
-          <h3 class="mt-0">Kei Onimaru</h3>
-          <p class="profile">
-            ねこだいすき。楽するための苦労はいとわない系エンジニア。<br>
-            好きな言葉は最適化、自動化、有給休暇。何もないところで転けられるドジっ子属性を持つのに、残念ながら男です。
-            IPv6とAWSとPythonが好物でよく食べます。Excelの仕様書をあたえると爆発していましたが、今は改善されたようです。
-          </p>
-          <p class="contact">
-            <a href="https://twitter.com/keionim"><img src="/img/icon/twitter_icon.svg" alt="Twitter Icon"></a>
-            <a href="https://github.com/keioni"><img src="/img/icon/github_icon.png" alt="GitHub Icon"></a>
-            <a href="https://qiita.com/keys"><img src="/img/icon/qiita_icon.png" alt="Qiita Icon"></a>
-            <a href="mailto:otegami@devel.keys.jp"><img src="/img/icon/envelope-fill.svg" alt="Mail Icon"></a>
-          </p>
+        <div class="media">
+          <img src="/img/profile/face.jpg" id="myface" alt="My Face">
+          <div class="media-body">
+            <h3>Kei Onimaru</h3>
+            <p id="profile">
+              双子のロシアンブルーと同居する、楽するための苦労はいとわない系エンジニア。最適化とか自動化が大好き。
+              IPv6, AWS, Docker, Serverless, Pythonといった単語に反応するっぽいです。
+            </p>
+            <p id="contact">
+              <a href="https://twitter.com/keionim"><img src="/img/icon/twitter_icon.svg" alt="Twitter Icon"></a>
+              <a href="https://github.com/keioni"><img src="/img/icon/github_icon.png" alt="GitHub Icon"></a>
+              <a href="https://qiita.com/keys"><img src="/img/icon/qiita_icon.png" alt="Qiita Icon"></a>
+              <a href="mailto:otegami@devel.keys.jp"><img src="/img/icon/envelope-fill.svg" alt="Mail Icon"></a>
+            </p>
+          </div>
         </div>
       </div>
 
-      <hr class="mt-4">
-
-      <div class="history">
-        <h5>ざっくり経歴紹介</h5>
+      <div class="details">
+        <h4>ざっくり経歴紹介</h4>
         <div>
           <p>
-            福岡県生まれ。大学を卒業後、奈良のすみっこの大学院でネットワーク工学とボケとツッコミを学ぶ。<br>
-            その後、上京してインターネット関連企業に新卒入社。SQLもろくにわからないのにデータマイニングのチームに配属され、
-            データ処理のインフラを設計、運用するとともに社内向けに集計データを見せるツールを作ったりなんたり。<br>
-            最後は巨大なデータ処理プラットフォームのハンドリングを担当。その後、諸事情により地元福岡にもどってSIerでSEとして勤務。
+            福岡生まれ福岡育ち。地元の大学を卒業後、奈良の大学院でネットワーク工学とボケとツッコミを学ぶ。<br>
+            その後、上京してインターネット関連企業に新卒入社。知見のないデータマイニングのチームに配属され、
+            データ処理のインフラを設計、運用するとともに社内向けに集計データを見せるツールを作ったり。<br>
+            巨大なデータ処理プラットフォームのハンドリングを担当。その後、諸事情により地元福岡にもどってSIerでSEとして勤務。
           </p>
           <p>
             もうちょっと詳しい（真面目な）自己紹介は<a href="/profile/" rel=”nofollow”>こちら</a>
           </p>
+        </div>
+
+        <h4>書いた文書など</h4>
+        <div>
+          <p><a href="https://qiita.com/keys">Qiitaに書くことが多い</a>ので、よろしければそれらをご覧ください。</p>
+          <dl>
+            <dt><a href="https://speakerdeck.com/keioni/ipadoresufalseonedan">IPアドレスのおねだん</a></dt>
+            <dd>完全枯渇まで時間の問題となっているIPv4アドレスが売買されている現状と、その市場の紹介</dd>
+            <dt><a href="https://qiita.com/keys/items/43adf968d366e80f0003">EC2インスタンス起動時にIPアドレスを自動でRoute53に登録する</a></dt>
+            <dd>AWSでCloudWatch+Lambda+Route53 を使ってElastic IPをケチるテクニック</dd>
+            <dt><a href="https://qiita.com/keys/items/187a9e028b2b9dcbc1c6">SSL証明書でIPアドレスからホスト名が漏れる</a></dt>
+            <dd>バーチャルホストを使っているとき、設定によってIPアドレスからドメイン名が分かってしまう件への対処法</dd>
+            <dt><a href="https://qiita.com/keys/items/62ed6b571112a457e560">SSLで使う暗号スイートはブラウザに任せていいのでは(※正しい設定なら)</a></dt>
+            <dd>多くのページで紹介されている <code>SSLHonorCipherOrder</code> の設定は、本当にそれでいいの？　という疑問</dd>
+          </dl>
         </div>
       </div>
 
       <div id="redundant-message"></div>
 
       <div id="love-ipv6">
-        <p class="text-center mt-5 ipv6">
+        <p>
           I<span class="hearts"> &hearts; </span>IPv6<br>
-          <img src="/img/connected/via.png" alt="Connected via">
+          <img class="footer-ipv6" src="/img/connected/via.png" alt="Connected via">
         </p>
       </div>
   </div>

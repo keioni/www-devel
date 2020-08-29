@@ -3,25 +3,37 @@
 /* Not required for template or sticky footer method. */
 
 
-.profile {
-    margin-bottom: 0.5em;
+.toppage {
+    padding-top: 3em;
+    padding-bottom: 2em;
 }
 
-.contact img {
+.toppage h1 {
+    font-size: 3em;
+    padding-bottom: 0.5em;
+}
+
+.toppage h3 {
+    font-size: 2em;
+}
+
+.toppage #myface {
+    height: 6em;
+    width: 6em;
+    margin-right: 2em;
+}
+
+.toppage #profile {
+    margin-bottom: 1em;
+}
+
+.toppage #contact img {
     height: 2em;
     width: auto;
     margin-right: 0.5em;
+    filter: saturate(0%) grayscale(100%);
 }
 
-.myface {
-    height: 5em;
-    width: 5em;
-}
-
-.ipv6 img {
-    height: 1.5em;
-    width: auto;
-}
 
 .footer-ipv6 {
     height: 1.5em;
@@ -36,29 +48,37 @@
     color: red;
 }
 
-#profile-detail div {
+.details div {
     margin-bottom: 3em;
 }
 
-#profile-detail h4 {
+.details h1 {
+    font-size: 2em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.details h4 {
     margin-bottom: 0.75em;
     padding-bottom: 0.5em;
     font-size: x-large;
     border-bottom: #000000 solid 0.1em;
 }
 
-#profile-detail dl {
+.details dl {
     margin-left: 1.5em;
 }
 
-#profile-detail dl dd {
+.details dl dd {
     margin-top: 0.25em;
     margin-left: 1.5em;
     margin-bottom: 0.75em;
 }
 
 #love-ipv6 {
+    text-align: center;
     display: contents;
+    margin-top: 2em;
 }
 
 main > .container {
