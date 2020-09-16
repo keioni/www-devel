@@ -7,19 +7,17 @@
             "items":
             [
                 {
-                    "name":  "Home",
-                    "attributes": {
-                        "href":  "/"
-                    },
-                    "is_enable": true
+                    "name": "Home",
+                    "href": "/",
+                    "is_enable": true,
+                    "is_active": true,
+                    "is_no_follow": false
                 },
                 {
                     "name": "Profile",
-                    "attributes": {
-                        "href": "/profile/",
-                        "rel": "nofollow"
-                },
-                    "is_enable": true
+                    "href": "/profile/",
+                    "is_enable": true,
+                    "is_no_follow": true
                 }
             ]
         }
