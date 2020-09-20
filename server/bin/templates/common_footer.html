@@ -12,11 +12,18 @@
         <a href="mailto:otegami@devel.keys.jp"><img src="/img/icon/envelope-fill.png" alt="Mail Icon"></a>
       </p>
       <p id="footer-notice">
-        特段の記載がない場合、この文書は <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC-BY ライセンス</a>で提供しています。<br>文責はすべて筆者にあります。文書の内容は所属する組織とは関係ありません。
+      {% if item.cc_notice %}
+        この文書は <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC-BY ライセンス</a>で提供しています。<br>
+      {% else %}
+        この文書は、<em>他のページと異なり</em>、クリエイティブライセンス CC-BY ライセンスでは<em>ありません</em>。文中の説明をご確認ください。<br>
+      {% endif %}
+        文責はすべて筆者にあります。文書の内容は所属する組織とは関係ありません。
       </p>
-      <p id="footer-copyright">
-        &copy; Kei Onimaru
-      </p>
+      {% if item.copryright %}
+        <p id="footer-copyright">
+          &copy; Kei Onimaru
+        </p>
+      {% endif %}
     </div>
   </footer>
   <!-- /template -->
