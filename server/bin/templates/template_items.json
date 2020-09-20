@@ -1,25 +1,31 @@
 {
-    "navbar": {
-        "common_header": {
-            "env":
-            {
-            },
+    "version": 1,
+    "common_header":
+    {
+        "navbar":
+        {
             "items":
             [
                 {
                     "name": "Home",
                     "href": "/",
+                    "is_visible": true,
                     "is_enable": true,
-                    "is_active": true,
-                    "is_no_follow": false
+                    "is_follow": true
                 },
                 {
                     "name": "Profile",
                     "href": "/profile/",
-                    "is_enable": true,
-                    "is_no_follow": true
+                    "is_follow": false
+                },
+                {
+                    "name": "Blog",
+                    "href": "/memo/"
                 }
             ]
         }
+    },
+    "common_footer":
+    {
     }
 }
