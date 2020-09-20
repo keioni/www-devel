@@ -105,15 +105,15 @@ main > .container
     padding-right: 0.2em;
 }
 
-#footer-copyright {
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+#footer-notice {
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
     font-size: small;
 }
 
-#footer-notice {
+#footer-copyright {
+    margin-bottom: 1.5em;
     font-size: small;
-    text-align: center;
 }
 
 code {
