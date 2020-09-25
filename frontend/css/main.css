@@ -27,12 +27,15 @@
     margin-bottom: 1em;
 }
 
-.toppage #contact img {
-    height: 2em;
+#contact img {
+    height: 1.25em;
     width: auto;
     margin-right: 0.5em;
 }
 
+#contact th {
+    width: min-content;
+}
 
 .certificate ul li {
     margin-left: -1em;
